@@ -1,0 +1,52 @@
+syntax="proto3";
+
+package order_service;
+option go_package="genproto/order_service";
+
+
+message Order {
+    string id = 1;
+    string created_at = 2;
+    string user_id = 3;
+    string product_id = 4;
+    string summ = 5;
+}
+
+message OrderCreate {
+    string user_id = 3;
+    string product_id = 4;
+    string summ = 5;
+}
+
+message OrderUpdate {
+    string user_id = 3;
+    string product_id = 4;
+    string summ = 5;
+}
+
+
+message Pkey {
+    string id = 1;
+}
+
+message Product {
+    string id = 1;
+    string created_at = 2;
+    string price = 3;
+    string name = 4;
+}
+
+message GetAllOrderRequest{
+    string search=1;
+    int64 page=2;
+    int32 limit=3;
+}
+
+
+message GetAllOrderResponse{
+    repeated Order orderss= 1;
+    int64 count =2;
+}
+
+
+
